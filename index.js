@@ -40,6 +40,8 @@ class Sohaty {
         new Currency(from);
         new Currency(to);
 
+        this.setFlags();
+
         this.multiply = 10;
         this.update()
     }
@@ -58,7 +60,6 @@ class Sohaty {
     }
 
     update() {
-
         this.data = range.map((x) => {
             return [x * this.multiply, (x * this.multiply * localStorage.getItem(this.from)['rates'][this.to]).toFixed(2)]
         });
@@ -71,6 +72,12 @@ class Sohaty {
             target[left].innerHTML = data[left];
         }
     }
+
+    setFlags() {
+        let flags = document.querySelectorAll('.header .left>img, .header .right>img');
+        flags[left].src = `images/${this.from}.png`;
+        flags[right].src = `images/${this.to}.png`;
+    }
 }
 
 
@@ -80,8 +87,3 @@ let touch = new TouchEvents(50);
 touch.on("left", () => sohaty.left());
 touch.on("right", () => sohaty.right());
 touch.configure(document.querySelector('.screen'));
-
-
-
-
-
