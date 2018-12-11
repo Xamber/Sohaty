@@ -21,3 +21,13 @@ Storage.prototype.getItem = function (key) {
 };
 
 
+const pretifier = function (data) {
+    if (data <= 100000) {
+        return String(data)
+    } else {
+        let ret = Math.round(data);
+        ret = ret / 1000;
+        ret = ret + 'K';
+        return ret
+    }
+};

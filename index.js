@@ -68,8 +68,8 @@ class Sohaty {
 
         for (let row of rows) {
             let [target, data] = row;
-            target[right].innerHTML = data[right];
-            target[left].innerHTML = data[left];
+            target[right].innerHTML = pretifier(data[right]);
+            target[left].innerHTML = pretifier(data[left]);
         }
     }
 
@@ -81,7 +81,7 @@ class Sohaty {
 }
 
 
-let sohaty = new Sohaty('EUR', 'RUB');
+let sohaty = new Sohaty('ISK', 'EUR');
 
 let touch = new TouchEvents(50);
 touch.on("left", () => sohaty.left());
